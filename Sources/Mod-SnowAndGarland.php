@@ -14,16 +14,54 @@ if (!defined('SMF')) {
 
 
 /**
- * Mod settings area
- * @param $config_vars
+ * Load all needed hooks
  */
-function settingsSnowAndGarland(&$config_vars)
+function loadSnowAndGarlandHooks()
 {
+    add_integration_function('integrate_admin_areas', 'addSnowAndGarlandAdminArea', false);
+    add_integration_function('integrate_modify_modifications', 'addSnowAndGarlandAdminAction', false);
+    add_integration_function('integrate_load_theme', 'loadSnowAndGarlandAssets', false);
+    add_integration_function('integrate_general_mod_settings', 'settingsSnowAndGarland', false);
+}
 
+
+/**
+ * Add mod admin area
+ * @param $admin_areas
+ */
+function addSnowAndGarlandAdminArea(&$admin_areas)
+{
+    global $txt;
     loadLanguage('SnowAndGarland/');
 
-    $config_vars = array_merge($config_vars, array(
-        '',
+    $admin_areas['config']['areas']['modsettings']['subsections']['snow_and_garland'] = array($txt['SnowAndGarland']);
+}
+
+
+/**
+ * Add mod admin action
+ * @param $subActions
+ */
+function addSnowAndGarlandAdminAction(&$subActions)
+{
+    $subActions['snow_and_garland'] = 'addSnowAndGarlandAdminSettings';
+}
+
+
+/**
+ * Add mod settings area
+ * @param bool $return_config
+ * @return array
+ */
+function addSnowAndGarlandAdminSettings($return_config = false)
+{
+    global $txt, $scripturl, $context;
+    loadLanguage('SnowAndGarland/');
+
+    $context['page_title'] = $context['settings_title'] = $txt['SnowAndGarland'];
+    $context['post_url'] = $scripturl . '?action=admin;area=modsettings;save;sa=snow_and_garland';
+
+    $config_vars = array(
         array('check', 'SnowAndGarland_garland_enabled'),
         array('check', 'SnowAndGarland_garland_mobile_enabled'),
         array('check', 'SnowAndGarland_garland_sound_enabled'),
@@ -42,14 +80,26 @@ function settingsSnowAndGarland(&$config_vars)
         array('check', 'SnowAndGarland_snow_useMeltEffect'),
         array('check', 'SnowAndGarland_snow_useTwinkleEffect'),
         array('check', 'SnowAndGarland_snow_snowStick'),
-    ));
+    );
+
+    if ($return_config) {
+        return $config_vars;
+    }
+
+    if (isset($_GET['save'])) {
+        checkSession();
+        saveDBSettings($config_vars);
+        redirectexit('action=admin;area=modsettings;sa=snow_and_garland');
+    }
+
+    prepareDBSettingContext($config_vars);
 }
 
 
 /**
  * Load mod assets
  */
-function loadSnowAndGarland()
+function loadSnowAndGarlandAssets()
 {
     global $modSettings, $context, $settings;
 

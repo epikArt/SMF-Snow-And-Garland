@@ -1,8 +1,9 @@
 <?php
 /**
  * @package SMF Snow and Garland
- * @author digger http://mysmf.ru
- * @copyright 2011-2016
+ * @file hooks.php
+ * @author digger <digger@mysmf.ru> <http://mysmf.ru>
+ * @copyright Copyright (c) 2011-2016, digger
  * @license BSD License
  * @version 1.3
  */
@@ -11,8 +12,7 @@ global $context, $user_info;
 
 $hooks = array(
     'integrate_pre_include' => '$sourcedir/Mod-SnowAndGarland.php',
-    'integrate_load_theme' => 'loadSnowAndGarland',
-    'integrate_general_mod_settings' => 'settingsSnowAndGarland',
+    'integrate_pre_load' => 'loadSnowAndGarlandHooks'
 );
 
 if (file_exists(dirname(__FILE__) . '/SSI.php') && !defined('SMF')) {

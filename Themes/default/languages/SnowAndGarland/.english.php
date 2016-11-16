@@ -1,19 +1,27 @@
 <?php
+/**
+ * @package SMF Snow and Garland
+ * @author digger <digger@mysmf.ru> <http://mysmf.ru>
+ * @copyright Copyright (c) 2011-2016, digger
+ * @license BSD License
+ * @version 1.3
+ */
 
-$txt['SnowAndGarland_garland_enabled'] = '[SnowAndGarland] Enable garland';
-$txt['SnowAndGarland_garland_mobile_enabled'] = '[SnowAndGarland] Enable garland on mobile devices too';
-$txt['SnowAndGarland_garland_sound_enabled'] = '[SnowAndGarland] Enable garland sound';
-$txt['SnowAndGarland_garland_top_offset'] = '[SnowAndGarland] Garland top offset (px)';
-$txt['SnowAndGarland_garland_garlandSize'] = '[SnowAndGarland] Lamps size';
+$txt['SnowAndGarland'] = 'Snow And Garland';
+$txt['SnowAndGarland_garland_enabled'] = 'Enable garland';
+$txt['SnowAndGarland_garland_mobile_enabled'] = 'Enable garland on mobile devices too';
+$txt['SnowAndGarland_garland_sound_enabled'] = 'Enable garland sound';
+$txt['SnowAndGarland_garland_top_offset'] = 'Garland top offset (px)';
+$txt['SnowAndGarland_garland_garlandSize'] = 'Lamps size';
 
-$txt['SnowAndGarland_snow_enabled'] = '[SnowAndGarland] Enable snow';
-$txt['SnowAndGarland_snow_mobile_enabled'] = '[SnowAndGarland] Enable snow on mobile devices too (not recommended)';
-$txt['SnowAndGarland_snow_flakesMax'] = '[SnowAndGarland] Snow flakes max count';
-$txt['SnowAndGarland_snow_flakesMaxActive'] = '[SnowAndGarland] Active snow flakes max count';
-$txt['SnowAndGarland_snow_followMouse'] = '[SnowAndGarland] Snow follow mouse';
-$txt['SnowAndGarland_snow_snowColor'] = '[SnowAndGarland] Snow color';
-$txt['SnowAndGarland_snow_snowCharacter'] = '[SnowAndGarland] Snow character';
-$txt['SnowAndGarland_snow_useMeltEffect'] = '[SnowAndGarland] Melt effect for snow';
-$txt['SnowAndGarland_snow_useTwinkleEffect'] = '[SnowAndGarland] Twinkle effect for snow';
-$txt['SnowAndGarland_snow_snowStick'] = '[SnowAndGarland] Snow stick';
+$txt['SnowAndGarland_snow_enabled'] = 'Enable snow';
+$txt['SnowAndGarland_snow_mobile_enabled'] = 'Enable snow on mobile devices too (not recommended)';
+$txt['SnowAndGarland_snow_flakesMax'] = 'Snow flakes max count';
+$txt['SnowAndGarland_snow_flakesMaxActive'] = 'Active snow flakes max count';
+$txt['SnowAndGarland_snow_followMouse'] = 'Snow follow mouse';
+$txt['SnowAndGarland_snow_snowColor'] = 'Snow color';
+$txt['SnowAndGarland_snow_snowCharacter'] = 'Snow character';
+$txt['SnowAndGarland_snow_useMeltEffect'] = 'Melt effect for snow';
+$txt['SnowAndGarland_snow_useTwinkleEffect'] = 'Twinkle effect for snow';
+$txt['SnowAndGarland_snow_snowStick'] = 'Snow stick';
 ?>

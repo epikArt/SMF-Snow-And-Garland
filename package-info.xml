@@ -13,7 +13,7 @@
         <require-dir name="Themes" destination="$boarddir"/>
         <code>hooks.php</code>
         <code>add_settings.php</code>
-        <redirect url="index.php?action=admin;area=modsettings;sa=general" timeout="5000"/>
+        <redirect url="?action=admin;area=modsettings;sa=snow_and_garland" timeout="5000"/>
     </install>
 
     <uninstall for="2.0 - 2.1.99">
