@@ -20,6 +20,7 @@ $mod_settings = array(
     'SnowAndGarland_garland_enabled' => 1,
     'SnowAndGarland_garland_garlandSize' => 'tiny',
     'SnowAndGarland_garland_sound_enabled' => '1',
+    'SnowAndGarland_garland_top_offset' => '1',
     'SnowAndGarland_snow_enabled' => 1,
     'SnowAndGarland_snow_flakesMax' => 64,
     'SnowAndGarland_snow_flakesMaxActive' => 32,

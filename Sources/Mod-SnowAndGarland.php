@@ -23,6 +23,7 @@ function settingsSnowAndGarland(&$config_vars)
         '',
         array('check', 'SnowAndGarland_garland_enabled'),
         array('check', 'SnowAndGarland_garland_sound_enabled'),
+        array('int', 'SnowAndGarland_garland_top_offset', 'postinput' => 'px'),
         array(
             'select',
             'SnowAndGarland_garland_garlandSize',
@@ -63,27 +64,32 @@ function loadSnowAndGarland()
                     snowStorm.vMaxX = 8;
                     snowStorm.vMaxY = 5;
                     snowStorm.excludeMobile = true;
-                // ]]></script>
-                ';
+                // ]]></script>';
     }
 
     if ($modSettings['SnowAndGarland_garland_enabled']) {
-        if ($modSettings['SnowAndGarland_garland_sound_enabled']) {
-        }
         $context['html_headers'] .= '
-                <link rel="stylesheet" media="screen" href ="' . $settings['default_theme_url'] . '/lights/christmaslights.css" />
-                <script type="text/javascript" src ="' . $settings['default_theme_url'] . '/lights/soundmanager2-nodebug-jsmin.js"></script>
-                <script type="text/javascript" src ="' . $settings['default_theme_url'] . '/lights/animation-min.js"></script>
-                <script type="text/javascript" src ="' . $settings['default_theme_url'] . '/lights/christmaslights-min.js"></script>                                 
-                <script type="text/javascript"><!-- // --><![CDATA[ 
-                    var urlBase="' . $settings['default_theme_url'] . '/lights/";
-                    var garlandSize="' . $modSettings['SnowAndGarland_garland_garlandSize'] . '";                        
-                    ' . (!empty($modSettings['SnowAndGarland_garland_sound_enabled']) ? 'soundManager.url="' . $settings['default_theme_url'] . '/lights/";' : '') . '                    
-                // ]]></script>
-<div id="lights">
-    <!-- lights go here -->
-</div>
-        ';
+    <link rel="stylesheet" media="screen" href ="' . $settings['default_theme_url'] . '/lights/christmaslights.css" />
+    <script type="text/javascript" src ="' . $settings['default_theme_url'] . '/lights/soundmanager2-nodebug-jsmin.js"></script>
+    <script type="text/javascript" src ="' . $settings['default_theme_url'] . '/lights/animation-min.js"></script>
+    <script type="text/javascript" src ="' . $settings['default_theme_url'] . '/lights/christmaslights-min.js"></script>                                 
+    <script type="text/javascript"><!-- // --><![CDATA[ 
+        var urlBase="' . $settings['default_theme_url'] . '/lights/";
+        var garlandSize="' . $modSettings['SnowAndGarland_garland_garlandSize'] . '";                        
+        ' . (!empty($modSettings['SnowAndGarland_garland_sound_enabled']) ? 'soundManager.url="' . $settings['default_theme_url'] . '/lights/";' : '') . '                    
+    // ]]></script>
+    <div id="lights">
+        <!-- lights go here -->
+    </div>';
+
+        if (!empty($modSettings['SnowAndGarland_garland_top_offset'])) {
+            $context['html_headers'] .= '
+    <style>
+        #lights {
+            top: ' . (int)$modSettings['SnowAndGarland_garland_top_offset'] . 'px !important; 
+        }
+    </style>';
+        }
     }
 }
 

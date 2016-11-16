@@ -2,6 +2,7 @@
 
 $txt['SnowAndGarland_garland_enabled'] = '[SnowAndGarland] Enable garland';
 $txt['SnowAndGarland_garland_sound_enabled'] = '[SnowAndGarland] Enable garland sound';
+$txt['SnowAndGarland_garland_top_offset'] = '[SnowAndGarland] Garland top offset (px)';
 $txt['SnowAndGarland_garland_garlandSize'] = '[SnowAndGarland] Lamps size';
 
 $txt['SnowAndGarland_snow_enabled'] = '[SnowAndGarland] Enable snow';
