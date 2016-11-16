@@ -1,8 +1,9 @@
 <?php
 /**
  * @package SMF Snow and Garland
- * @author digger http://mysmf.ru
- * @copyright 2011-2016
+ * @file Mod-SnowAndGarland.php
+ * @author digger <digger@mysmf.ru> <http://mysmf.ru>
+ * @copyright Copyright (c) 2011-2016, digger
  * @license BSD License
  * @version 1.3
  */
@@ -11,9 +12,11 @@ if (!defined('SMF')) {
     die('Hacking attempt...');
 }
 
-// TODO: JQuery check compatibility
-// TODO: On/Off button
 
+/**
+ * Mod settings area
+ * @param $config_vars
+ */
 function settingsSnowAndGarland(&$config_vars)
 {
 
@@ -40,9 +43,15 @@ function settingsSnowAndGarland(&$config_vars)
     ));
 }
 
+
+/**
+ * Load mod assets
+ */
 function loadSnowAndGarland()
 {
     global $modSettings, $context, $settings;
+
+    if (WIRELESS) return;
 
     if ($modSettings['SnowAndGarland_snow_enabled']) {
         $context['insert_after_template'] .= '         
@@ -77,10 +86,7 @@ function loadSnowAndGarland()
         var urlBase="' . $settings['default_theme_url'] . '/lights/";
         var garlandSize="' . $modSettings['SnowAndGarland_garland_garlandSize'] . '";                        
         ' . (!empty($modSettings['SnowAndGarland_garland_sound_enabled']) ? 'soundManager.url="' . $settings['default_theme_url'] . '/lights/";' : '') . '                    
-    // ]]></script>
-    <div id="lights">
-        <!-- lights go here -->
-    </div>';
+    // ]]></script>';
 
         if (!empty($modSettings['SnowAndGarland_garland_top_offset'])) {
             $context['html_headers'] .= '
@@ -90,6 +96,9 @@ function loadSnowAndGarland()
         }
     </style>';
         }
+
+        loadTemplate('SnowAndGarland');
+        $context['template_layers'][] = 'garland';
     }
 }
 
