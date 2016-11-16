@@ -1,6 +1,7 @@
 <?php
 
 $txt['SnowAndGarland_garland_enabled'] = '[SnowAndGarland] Включить гирлянду';
+$txt['SnowAndGarland_garland_sound_enabled'] = '[SnowAndGarland] Включить звук гирлянды';
 $txt['SnowAndGarland_garland_garlandSize'] = '[SnowAndGarland] Размер лампочек';
 
 $txt['SnowAndGarland_snow_enabled'] = '[SnowAndGarland] Включить снег';
@@ -12,5 +13,4 @@ $txt['SnowAndGarland_snow_snowCharacter'] = '[SnowAndGarland] Символ сн�
 $txt['SnowAndGarland_snow_useMeltEffect'] = '[SnowAndGarland] Эффект таянья';
 $txt['SnowAndGarland_snow_useTwinkleEffect'] = '[SnowAndGarland] Эффект мерцания';
 $txt['SnowAndGarland_snow_snowStick'] = '[SnowAndGarland] Снежинки накапливаются внизу экрана';
-
 ?>

@@ -19,9 +19,10 @@ if (file_exists(dirname(__FILE__) . '/SSI.php') && !defined('SMF')) {
 $mod_settings = array(
     'SnowAndGarland_garland_enabled' => 1,
     'SnowAndGarland_garland_garlandSize' => 'tiny',
+    'SnowAndGarland_garland_sound_enabled' => '1',
     'SnowAndGarland_snow_enabled' => 1,
-    'SnowAndGarland_snow_flakesMax' => 128,
-    'SnowAndGarland_snow_flakesMaxActive' => 64,
+    'SnowAndGarland_snow_flakesMax' => 64,
+    'SnowAndGarland_snow_flakesMaxActive' => 32,
     'SnowAndGarland_snow_followMouse' => 1,
     'SnowAndGarland_snow_snowColor' => '#fff',
     'SnowAndGarland_snow_useMeltEffect' => 1,

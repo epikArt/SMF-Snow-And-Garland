@@ -11,7 +11,7 @@ if (!defined('SMF')) {
     die('Hacking attempt...');
 }
 
-// TODO: JQuery compatibility
+// TODO: JQuery check compatibility
 // TODO: On/Off button
 
 function settingsSnowAndGarland(&$config_vars)
@@ -22,6 +22,7 @@ function settingsSnowAndGarland(&$config_vars)
     $config_vars = array_merge($config_vars, array(
         '',
         array('check', 'SnowAndGarland_garland_enabled'),
+        array('check', 'SnowAndGarland_garland_sound_enabled'),
         array(
             'select',
             'SnowAndGarland_garland_garlandSize',
@@ -63,25 +64,26 @@ function loadSnowAndGarland()
                     snowStorm.vMaxY = 5;
                     snowStorm.excludeMobile = true;
                 // ]]></script>
-
                 ';
     }
 
     if ($modSettings['SnowAndGarland_garland_enabled']) {
+        if ($modSettings['SnowAndGarland_garland_sound_enabled']) {
+        }
         $context['html_headers'] .= '
-                <link rel = "stylesheet" media = "screen" href = "' . $settings['default_theme_url'] . '/lights/christmaslights.css" />
-                <script type = "text/javascript" src = "' . $settings['default_theme_url'] . '/lights/soundmanager2-nodebug-jsmin.js"></script>
-                <script type = "text/javascript" src = "http://yui.yahooapis.com/combo?2.6.0/build/yahoo-dom-event/yahoo-dom-event.js&2.6.0/build/animation/animation-min.js"></script>
-                <script type = "text/javascript" src = "' . $settings['default_theme_url'] . '/lights/christmaslights.js"></script>                                 
+                <link rel="stylesheet" media="screen" href ="' . $settings['default_theme_url'] . '/lights/christmaslights.css" />
+                <script type="text/javascript" src ="' . $settings['default_theme_url'] . '/lights/soundmanager2-nodebug-jsmin.js"></script>
+                <script type="text/javascript" src ="' . $settings['default_theme_url'] . '/lights/animation-min.js"></script>
+                <script type="text/javascript" src ="' . $settings['default_theme_url'] . '/lights/christmaslights-min.js"></script>                                 
                 <script type="text/javascript"><!-- // --><![CDATA[ 
-                    var urlBase = "' . $settings['default_theme_url'] . '/lights/";
-                    var garlandSize = "' . $modSettings['SnowAndGarland_garland_garlandSize'] . '";                        
-                    soundManager.url = "' . $settings['default_theme_url'] . '/lights/";                    
+                    var urlBase="' . $settings['default_theme_url'] . '/lights/";
+                    var garlandSize="' . $modSettings['SnowAndGarland_garland_garlandSize'] . '";                        
+                    ' . (!empty($modSettings['SnowAndGarland_garland_sound_enabled']) ? 'soundManager.url="' . $settings['default_theme_url'] . '/lights/";' : '') . '                    
                 // ]]></script>
 <div id="lights">
     <!-- lights go here -->
 </div>
-';
+        ';
     }
 }
 

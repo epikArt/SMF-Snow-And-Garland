@@ -1,6 +1,7 @@
 <?php
 
 $txt['SnowAndGarland_garland_enabled'] = '[SnowAndGarland] Включить гирлянду';
+$txt['SnowAndGarland_garland_sound_enabled'] = '[SnowAndGarland] Включить звук гирлянды';
 $txt['SnowAndGarland_garland_garlandSize'] = '[SnowAndGarland] Размер лампочек';
 
 $txt['SnowAndGarland_snow_enabled'] = '[SnowAndGarland] Включить снег';
