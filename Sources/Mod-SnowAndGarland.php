@@ -25,6 +25,7 @@ function settingsSnowAndGarland(&$config_vars)
     $config_vars = array_merge($config_vars, array(
         '',
         array('check', 'SnowAndGarland_garland_enabled'),
+        array('check', 'SnowAndGarland_garland_mobile_enabled'),
         array('check', 'SnowAndGarland_garland_sound_enabled'),
         array('int', 'SnowAndGarland_garland_top_offset', 'postinput' => 'px'),
         array(
@@ -33,6 +34,7 @@ function settingsSnowAndGarland(&$config_vars)
             array('pico' => 'pico', 'tiny' => 'tiny', 'small' => 'small', 'medium' => 'medium', 'large' => 'large')
         ),
         array('check', 'SnowAndGarland_snow_enabled'),
+        array('check', 'SnowAndGarland_snow_mobile_enabled'),
         array('int', 'SnowAndGarland_snow_flakesMax'),
         array('int', 'SnowAndGarland_snow_flakesMaxActive'),
         array('check', 'SnowAndGarland_snow_followMouse'),
@@ -51,7 +53,9 @@ function loadSnowAndGarland()
 {
     global $modSettings, $context, $settings;
 
-    if (WIRELESS) return;
+    if (WIRELESS) {
+        return;
+    }
 
     if ($modSettings['SnowAndGarland_snow_enabled']) {
         $context['insert_after_template'] .= '         
@@ -72,11 +76,16 @@ function loadSnowAndGarland()
                     snowStorm.usePositionFixed = false;
                     snowStorm.vMaxX = 8;
                     snowStorm.vMaxY = 5;
-                    snowStorm.excludeMobile = true;
+                    snowStorm.excludeMobile = ' . (!empty($modSettings['SnowAndGarland_snow_mobile_enabled']) ? 'false' : 'true') . ';
                 // ]]></script>';
     }
 
     if ($modSettings['SnowAndGarland_garland_enabled']) {
+
+        if (empty($modSettings['SnowAndGarland_garland_mobile_enabled']) && (!empty($context['browser']['is_iphone']) || !empty($context['browser']['is_android']))) {
+            return;
+        }
+
         $context['html_headers'] .= '
     <link rel="stylesheet" media="screen" href ="' . $settings['default_theme_url'] . '/lights/christmaslights.css" />
     <script type="text/javascript" src ="' . $settings['default_theme_url'] . '/lights/soundmanager2-nodebug-jsmin.js"></script>

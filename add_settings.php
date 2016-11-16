@@ -18,10 +18,12 @@ if (file_exists(dirname(__FILE__) . '/SSI.php') && !defined('SMF')) {
 // List settings here in the format: setting_key => default_value.  Escape any "s. (" => \")
 $mod_settings = array(
     'SnowAndGarland_garland_enabled' => 1,
+    'SnowAndGarland_garland_mobile_enabled' => 0,
     'SnowAndGarland_garland_garlandSize' => 'tiny',
     'SnowAndGarland_garland_sound_enabled' => '1',
     'SnowAndGarland_garland_top_offset' => '1',
     'SnowAndGarland_snow_enabled' => 1,
+    'SnowAndGarland_snow_mobile_enabled' => 0,
     'SnowAndGarland_snow_flakesMax' => 64,
     'SnowAndGarland_snow_flakesMaxActive' => 32,
     'SnowAndGarland_snow_followMouse' => 1,
