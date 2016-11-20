@@ -102,7 +102,7 @@ function loadSnowAndGarlandAssets()
 {
     global $modSettings, $context, $settings;
 
-    if (defined('WIRELESS')) {
+    if (defined('WIRELESS') && WIRELESS === true) {
         return;
     }
 
