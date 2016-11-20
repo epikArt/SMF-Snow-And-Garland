@@ -21,7 +21,6 @@ function loadSnowAndGarlandHooks()
     add_integration_function('integrate_admin_areas', 'addSnowAndGarlandAdminArea', false);
     add_integration_function('integrate_modify_modifications', 'addSnowAndGarlandAdminAction', false);
     add_integration_function('integrate_load_theme', 'loadSnowAndGarlandAssets', false);
-    add_integration_function('integrate_general_mod_settings', 'settingsSnowAndGarland', false);
 }
 
 
