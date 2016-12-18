@@ -28,6 +28,7 @@ $mod_settings = array(
     'SnowAndGarland_snow_flakesMaxActive' => 32,
     'SnowAndGarland_snow_followMouse' => 1,
     'SnowAndGarland_snow_snowColor' => '#fff',
+    'SnowAndGarland_snow_flakeHeight' => 8,
     'SnowAndGarland_snow_useMeltEffect' => 1,
     'SnowAndGarland_snow_useTwinkleEffect' => 1,
     'SnowAndGarland_snow_snowStick' => 1,

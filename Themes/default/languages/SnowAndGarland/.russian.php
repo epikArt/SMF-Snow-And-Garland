@@ -20,6 +20,7 @@ $txt['SnowAndGarland_snow_flakesMax'] = 'Максимальное количество снежинок на экр
 $txt['SnowAndGarland_snow_flakesMaxActive'] = 'Количество движущихся снежинок на экране';
 $txt['SnowAndGarland_snow_followMouse'] = 'Снежинки двигаются за мышью';
 $txt['SnowAndGarland_snow_snowColor'] = 'Цвет снежинок';
+$txt['SnowAndGarland_snow_flakeHeight'] = 'Максимальная высота символа снежинки (в пикселах)';
 $txt['SnowAndGarland_snow_snowCharacter'] = 'Символ снежинки';
 $txt['SnowAndGarland_snow_useMeltEffect'] = 'Эффект таянья';
 $txt['SnowAndGarland_snow_useTwinkleEffect'] = 'Эффект мерцания';

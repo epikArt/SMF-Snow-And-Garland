@@ -76,6 +76,8 @@ function addSnowAndGarlandAdminSettings($return_config = false)
         array('int', 'SnowAndGarland_snow_flakesMaxActive'),
         array('check', 'SnowAndGarland_snow_followMouse'),
         array('text', 'SnowAndGarland_snow_snowColor'),
+        array('int', 'SnowAndGarland_snow_flakeHeight', 'postinput' => 'px'),
+        array('text', 'SnowAndGarland_snow_snowCharacter'),
         array('check', 'SnowAndGarland_snow_useMeltEffect'),
         array('check', 'SnowAndGarland_snow_useTwinkleEffect'),
         array('check', 'SnowAndGarland_snow_snowStick'),
@@ -118,6 +120,9 @@ function loadSnowAndGarlandAssets()
                     snowStorm.followMouse = ' . $modSettings['SnowAndGarland_snow_followMouse'] . ';
                     snowStorm.freezeOnBlur = true;
                     snowStorm.snowColor = "' . $modSettings['SnowAndGarland_snow_snowColor'] . '";
+                    snowStorm.flakeHeight = ' . (!empty($modSettings['SnowAndGarland_snow_flakeHeight']) ? $modSettings['SnowAndGarland_snow_flakeHeight'] : 8) . ';
+                    snowStorm.flakeWidth = ' . (!empty($modSettings['SnowAndGarland_snow_flakeHeight']) ? $modSettings['SnowAndGarland_snow_flakeHeight'] : 8) . ';
+                    snowStorm.snowCharacter = "' . (!empty($modSettings['SnowAndGarland_snow_snowCharacter']) ? $modSettings['SnowAndGarland_snow_snowCharacter'] : '&bull;') . '";
                     snowStorm.snowStick = ' . $modSettings['SnowAndGarland_snow_snowStick'] . ';
                     snowStorm.targetElement = null;
                     snowStorm.useMeltEffect = ' . $modSettings['SnowAndGarland_snow_useMeltEffect'] . ';
