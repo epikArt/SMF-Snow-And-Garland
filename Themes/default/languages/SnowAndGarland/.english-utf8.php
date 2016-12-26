@@ -11,6 +11,7 @@ $txt['SnowAndGarland'] = 'Snow And Garland';
 $txt['SnowAndGarland_garland_enabled'] = 'Enable garland';
 $txt['SnowAndGarland_garland_mobile_enabled'] = 'Enable garland on mobile devices too';
 $txt['SnowAndGarland_garland_sound_enabled'] = 'Enable garland sound';
+$txt['SnowAndGarland_top_offset'] = 'Forum page top offset(px)';
 $txt['SnowAndGarland_garland_top_offset'] = 'Garland top offset (px)';
 $txt['SnowAndGarland_garland_garlandSize'] = 'Lamps size';
 

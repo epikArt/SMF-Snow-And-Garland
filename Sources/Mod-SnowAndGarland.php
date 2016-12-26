@@ -64,6 +64,7 @@ function addSnowAndGarlandAdminSettings($return_config = false)
         array('check', 'SnowAndGarland_garland_enabled'),
         array('check', 'SnowAndGarland_garland_mobile_enabled'),
         array('check', 'SnowAndGarland_garland_sound_enabled'),
+        array('int', 'SnowAndGarland_top_offset', 'postinput' => 'px'),
         array('int', 'SnowAndGarland_garland_top_offset', 'postinput' => 'px'),
         array(
             'select',
@@ -151,6 +152,15 @@ function loadSnowAndGarlandAssets()
         var garlandSize="' . $modSettings['SnowAndGarland_garland_garlandSize'] . '";                        
         ' . (!empty($modSettings['SnowAndGarland_garland_sound_enabled']) ? 'soundManager.url="' . $settings['default_theme_url'] . '/lights/";' : '') . '                    
     // ]]></script>';
+
+        if (!empty($modSettings['SnowAndGarland_top_offset'])) {
+            $context['html_headers'] .= '
+    <style>
+        body {
+            padding-top: ' . (int)$modSettings['SnowAndGarland_top_offset'] . 'px !important; 
+        }
+    </style>';
+        }
 
         if (!empty($modSettings['SnowAndGarland_garland_top_offset'])) {
             $context['html_headers'] .= '

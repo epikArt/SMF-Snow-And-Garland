@@ -12,9 +12,9 @@
 function template_garland_above()
 {
     echo '
-    <div id="lights">
-        <!-- lights go here -->
-    </div>';
+<div id="lights">
+    <!-- lights go here -->
+</div>';
 }
 
 

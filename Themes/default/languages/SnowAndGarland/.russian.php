@@ -11,6 +11,7 @@ $txt['SnowAndGarland'] = 'Снег и гирлянда';
 $txt['SnowAndGarland_garland_enabled'] = 'Включить гирлянду';
 $txt['SnowAndGarland_garland_mobile_enabled'] = 'Включить гирлянду и для мобильных устройств';
 $txt['SnowAndGarland_garland_sound_enabled'] = 'Включить звук гирлянды';
+$txt['SnowAndGarland_top_offset'] = 'Отступ сверху для шаблона форума (в пикселах)';
 $txt['SnowAndGarland_garland_top_offset'] = 'Отступ сверху для гирлянды (в пикселах)';
 $txt['SnowAndGarland_garland_garlandSize'] = 'Размер лампочек';
 
