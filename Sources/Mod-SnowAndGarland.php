@@ -77,12 +77,16 @@ function addSnowAndGarlandAdminSettings($return_config = false)
         array('int', 'SnowAndGarland_snow_flakesMax'),
         array('int', 'SnowAndGarland_snow_flakesMaxActive'),
         array('check', 'SnowAndGarland_snow_followMouse'),
-        array('text', 'SnowAndGarland_snow_snowColor'),
+        array('text', 'SnowAndGarland_snow_snowColor', 'size' => 8),
         array('int', 'SnowAndGarland_snow_flakeHeight', 'postinput' => 'px'),
-        array('text', 'SnowAndGarland_snow_snowCharacter'),
+        array('text', 'SnowAndGarland_snow_snowCharacter', 'size' => 8),
         array('check', 'SnowAndGarland_snow_useMeltEffect'),
         array('check', 'SnowAndGarland_snow_useTwinkleEffect'),
         array('check', 'SnowAndGarland_snow_snowStick'),
+        array('int', 'SnowAndGarland_snow_vMaxX'),
+        array('int', 'SnowAndGarland_snow_vMaxY'),
+        array('int', 'SnowAndGarland_snow_zIndex'),
+        array('text', 'SnowAndGarland_snow_targetElement'),
     );
 
     if ($return_config) {
@@ -119,19 +123,20 @@ function loadSnowAndGarlandAssets()
                     snowStorm.flakeBottom = null;
                     snowStorm.flakesMax = ' . $modSettings['SnowAndGarland_snow_flakesMax'] . ';
                     snowStorm.flakesMaxActive = ' . $modSettings['SnowAndGarland_snow_flakesMaxActive'] . ';
-                    snowStorm.followMouse = ' . $modSettings['SnowAndGarland_snow_followMouse'] . ';
+                    snowStorm.followMouse = ' . (!empty($modSettings['SnowAndGarland_snow_followMouse']) ? 1 : 0) . ';
                     snowStorm.freezeOnBlur = true;
                     snowStorm.snowColor = "' . $modSettings['SnowAndGarland_snow_snowColor'] . '";
                     snowStorm.flakeHeight = ' . (!empty($modSettings['SnowAndGarland_snow_flakeHeight']) ? $modSettings['SnowAndGarland_snow_flakeHeight'] : 8) . ';
                     snowStorm.flakeWidth = ' . (!empty($modSettings['SnowAndGarland_snow_flakeHeight']) ? $modSettings['SnowAndGarland_snow_flakeHeight'] : 8) . ';
                     snowStorm.snowCharacter = "' . (!empty($modSettings['SnowAndGarland_snow_snowCharacter']) ? $modSettings['SnowAndGarland_snow_snowCharacter'] : '&bull;') . '";
                     snowStorm.snowStick = ' . $modSettings['SnowAndGarland_snow_snowStick'] . ';
-                    snowStorm.targetElement = null;
                     snowStorm.useMeltEffect = ' . $modSettings['SnowAndGarland_snow_useMeltEffect'] . ';
                     snowStorm.useTwinkleEffect = ' . $modSettings['SnowAndGarland_snow_useTwinkleEffect'] . ';
                     snowStorm.usePositionFixed = false;
-                    snowStorm.vMaxX = 8;
-                    snowStorm.vMaxY = 5;
+                    snowStorm.vMaxX = ' . (!empty($modSettings['SnowAndGarland_snow_vMaxX']) ? $modSettings['SnowAndGarland_snow_vMaxX'] : 8) . ';
+                    snowStorm.vMaxY = ' . (!empty($modSettings['SnowAndGarland_snow_vMaxY']) ? $modSettings['SnowAndGarland_snow_vMaxY'] : 5) . ';
+                    snowStorm.zIndex = ' . (!empty($modSettings['SnowAndGarland_snow_zIndex']) ? $modSettings['SnowAndGarland_snow_zIndex'] : 0) . ';
+                    snowStorm.targetElement = ' . (!empty($modSettings['SnowAndGarland_snow_targetElement']) ? '"' . $modSettings['SnowAndGarland_snow_targetElement'] . '"' : 'null') . ';
                     snowStorm.excludeMobile = ' . (!empty($modSettings['SnowAndGarland_snow_mobile_enabled']) ? 'false' : 'true') . ';
                 // ]]></script>';
     }
