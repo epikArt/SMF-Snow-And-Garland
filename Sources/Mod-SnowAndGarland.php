@@ -70,6 +70,7 @@ function addSnowAndGarlandAdminSettings($return_config = false)
             'SnowAndGarland_garland_garlandSize',
             array('pico' => 'pico', 'tiny' => 'tiny', 'small' => 'small', 'medium' => 'medium', 'large' => 'large')
         ),
+        '',
         array('check', 'SnowAndGarland_snow_enabled'),
         array('check', 'SnowAndGarland_snow_mobile_enabled'),
         array('int', 'SnowAndGarland_snow_flakesMax'),
@@ -161,7 +162,13 @@ function loadSnowAndGarlandAssets()
         }
 
         loadTemplate('SnowAndGarland');
-        $context['template_layers'][] = 'garland';
+
+        if (isset($context['template_layers'])) {
+            $position = array_search('html', $context['template_layers']);
+            if ($position !== false) {
+                array_splice($context['template_layers'], $position + 1, 0, 'garland');
+            }
+        }
     }
 }
 
