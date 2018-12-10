@@ -3,7 +3,7 @@
 * **License:** BSD License
 * **Compatible with:** SMF 2.0
 * **Hooks only:** Yes
-* **Languages:** English, Russian
+* **Languages:** English, Russian, Spanish
 
 ## Description
 Snow and Garland for your forum.
