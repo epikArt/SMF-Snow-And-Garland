@@ -1,5 +1,5 @@
 [![GitHub release](https://img.shields.io/github/release/realdigger/SMF-Snow-And-Garland.svg)](https://github.com/realdigger/SMF-Snow-And-Garland/releases)
-[![Build Status](https://travis-ci.org/realdigger/SMF-SMF-Snow-And-Garland.svg?branch=master)](https://travis-ci.org/realdigger/SMF-Snow-And-Garland)
+[![Build Status](https://travis-ci.org/realdigger/SMF-Snow-And-Garland.svg?branch=master)](https://travis-ci.org/realdigger/SMF-Snow-And-Garland)
 [![SMF](https://img.shields.io/badge/SMF-2.0-blue.svg?style==flat)](https://simplemachines.org)
 [![SMF](https://img.shields.io/badge/SMF-2.1-blue.svg?style==flat)](https://simplemachines.org)
 [![Hooks](https://img.shields.io/badge/hooks%20only-✓-blue.svg?style==flat)]()
