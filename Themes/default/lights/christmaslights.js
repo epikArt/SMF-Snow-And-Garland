@@ -1,9 +1,6 @@
 // Christmas Light Smashfest
 // Adapted from XLSF 2007 as originally used on http://schillmania.com/?theme=2007&christmas=1
 
-//mod-snow_and_garland
-soundManager.url = 'mod-snow_and_garland/';
-
 function $(sID) {
   return document.getElementById(sID);
 }
@@ -20,7 +17,7 @@ var Y = {
 
 function XLSF(oTarget,urlBase) {
   var writeDebug = soundManager._wD;
-  var urlBase = (urlBase?urlBase:'mod-snow_and_garland/');
+  var urlBase = (urlBase?urlBase:'lights/');
   writeDebug('XLSF()');
   var IS_MOON_COMPUTER = false;
   var isIE = navigator.userAgent.match(/msie/i);
@@ -39,7 +36,7 @@ function XLSF(oTarget,urlBase) {
     tiny: 50,
     small: 64,
     medium: 72,
-    large: 96	
+    large: 96
   }
 
   if (window.innerWidth || window.innerHeight) {
@@ -50,10 +47,14 @@ function XLSF(oTarget,urlBase) {
     var screenY = (document.documentElement.clientHeight||document.body.clientHeight||document.body.scrollHeight);
   }
 
-  this.lightClass = (screenX>1280?'small':'pico'); // kind of light to show (32px to 96px square)
+  this.lightClass = (screenX>1800?'small':'pico'); // kind of light to show (32px to 96px square)
+
+  if (window.location.href.match(/size=/i)) {
+    this.lightClass = window.location.href.substr(window.location.href.indexOf('size=')+5);
+  }
 
   if (garlandSize) {
-    this.lightClass = garlandSize;
+        this.lightClass = garlandSize;
   }
 
   this.lightXY = this.lightClasses[this.lightClass]; // shortcut to w/h
@@ -116,7 +117,7 @@ function XLSF(oTarget,urlBase) {
     this.vY = vY*(1.5+Math.random());
     this.oA = null;
     this.oA2 = null;
-    this.burstPhase = 3; // starting background offset point
+    this.burstPhase = 1; // starting background offset point
     this.burstPhases = 4; // 1+offset (ignore large size)
     this.o.style.backgroundPosition = ((this.w*-this.burstPhase)+'px '+(this.h*-nType)+'px');
 
@@ -318,7 +319,7 @@ function XLSF(oTarget,urlBase) {
     this.smash = function(e) {
       if (self.broken) return false;
       self.broken = true;
-      if (soundManager && soundManager._didInit && !soundManager._disabled) {
+      if (soundManager && soundManager.ok()) {
         soundManager.play(self.soundID,{pan:self.pan});
         // soundManager.sounds[self.soundID].play({pan:self.pan});
         // if (self.bonusSound != null) window.setTimeout(self.smashBonus,1000);
@@ -359,7 +360,7 @@ function XLSF(oTarget,urlBase) {
     }
 
     this.init();
-    
+
   } // Light()
 
   this.createLight = function(sClass,nType,x,y) {
@@ -382,9 +383,9 @@ function XLSF(oTarget,urlBase) {
     self.lights[parseInt(Math.random()*self.lights.length)].toggle();
   }
 
-  
+
   this.destroyLights = function() {
-    self.startSequence(self.destroyLight,20);    
+    self.startSequence(self.destroyLight,20);
   }
 
   this.destroyLight = function() {
@@ -441,7 +442,7 @@ function XLSF(oTarget,urlBase) {
 
   this.appendLights();
   this.startSequence(self.randomLights);
-  
+
 }
 
 var xlsf = null;
@@ -453,18 +454,7 @@ function smashInit() {
   }
   xlsf = new XLSF(document.getElementById('lights'),urlBase?urlBase:null);
   if ($('loading')) {
-    $('loading').style.display = 'none';	
+    $('loading').style.display = 'none';
   }
   xlsf.initSounds();
-}
-
-soundManager.flashVersion = 9;
-soundManager.debugMode = false;
-
-soundManager.onload = function() {
-  setTimeout(smashInit,20);
-}
-
-soundManager.onerror = function() {
-  setTimeout(smashInit,20);
 }

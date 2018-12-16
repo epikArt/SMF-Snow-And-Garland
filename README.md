@@ -1,7 +1,14 @@
-# SMF Snow and Garland mod
+[![GitHub release](https://img.shields.io/github/release/realdigger/SMF-Snow-And-Garland.svg)](https://github.com/realdigger/SMF-Snow-And-Garland/releases)
+[![Build Status](https://travis-ci.org/realdigger/SMF-SMF-Snow-And-Garland.svg?branch=master)](https://travis-ci.org/realdigger/SMF-Snow-And-Garland)
+[![SMF](https://img.shields.io/badge/SMF-2.0-blue.svg?style==flat)](https://simplemachines.org)
+[![SMF](https://img.shields.io/badge/SMF-2.1-blue.svg?style==flat)](https://simplemachines.org)
+[![Hooks](https://img.shields.io/badge/hooks%20only-✓-blue.svg?style==flat)]()
+[![license](https://img.shields.io/github/license/realdigger/SMF-Snow-And-Garland.svg)]()
+
+# SMF Snow and Garland mod [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=SMF%20Snow%20And%20Garland&url=https://github.com/realdigger/SMF-Snow-And-Garland&hashtags=smf,snow,garland)
 * **Author:** digger http://mysmf.ru
 * **License:** BSD License
-* **Compatible with:** SMF 2.0
+* **Compatible with:** SMF 2.0, SMF 2.1
 * **Hooks only:** Yes
 * **Languages:** English, Russian, Spanish
 

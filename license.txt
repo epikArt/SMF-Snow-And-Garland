@@ -1,6 +1,6 @@
 Software License Agreement (BSD License)
 
-Copyright (c) 2011-2016, digger http://mysmf.ru
+Copyright (c) 2011-2018, digger https://mysmf.net
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,

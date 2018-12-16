@@ -21,5 +21,3 @@ function template_garland_above()
 function template_garland_below()
 {
 }
-
-?>

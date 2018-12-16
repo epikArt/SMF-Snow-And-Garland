@@ -38,4 +38,3 @@ foreach ($hooks as $hook => $function) {
 if (SMF == 'SSI') {
     echo 'Database changes are complete! <a href="/">Return to the main page</a>.';
 }
-?>

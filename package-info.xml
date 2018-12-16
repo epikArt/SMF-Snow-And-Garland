@@ -5,22 +5,23 @@
     <id>digger:snow_and_garland</id>
     <name>Snow and Garland</name>
     <type>modification</type>
-    <version>1.3.8</version>
+    <version>1.4.0</version>
 
     <install for="2.0 - 2.1.99">
-        <readme parsebbc="true">README.md</readme>
+        <readme parsebbc="true">README.bbc</readme>
         <require-dir name="Sources" destination="$boarddir"/>
         <require-dir name="Themes" destination="$boarddir"/>
-        <code>hooks.php</code>
-        <code>add_settings.php</code>
+        <database>hooks.php</database>
+        <database>settings.php</database>
         <redirect url="?action=admin;area=modsettings;sa=snow_and_garland" timeout="5000"/>
     </install>
 
     <uninstall for="2.0 - 2.1.99">
+        <remove-file name="$sourcedir/Mod-SnowAndGarland.php"/>
         <remove-dir name="$themedir/lights"/>
         <remove-dir name="$themedir/languages/SnowAndGarland"/>
-        <remove-file name="$sourcedir/Mod-SnowAndGarland.php"/>
-        <code>hooks.php</code>
+        <remove-file name="$themedir/SnowAndGarland.template.php"/>
+        <database>hooks.php</database>
     </uninstall>
 
 </package-info>

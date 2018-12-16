@@ -44,4 +44,3 @@ foreach ($mod_settings as $new_setting => $new_value) {
         updateSettings(array($new_setting => $new_value));
     }
 }
-?>

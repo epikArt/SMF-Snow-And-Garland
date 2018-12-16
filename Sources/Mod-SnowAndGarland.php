@@ -3,9 +3,9 @@
  * @package SMF Snow and Garland
  * @file Mod-SnowAndGarland.php
  * @author digger <digger@mysmf.ru> <http://mysmf.ru>
- * @copyright Copyright (c) 2011-2016, digger
+ * @copyright Copyright (c) 2011-2018, digger
  * @license BSD License
- * @version 1.3
+ * @version 1.4
  */
 
 if (!defined('SMF')) {
@@ -21,8 +21,20 @@ function loadSnowAndGarlandHooks()
     add_integration_function('integrate_admin_areas', 'addSnowAndGarlandAdminArea', false);
     add_integration_function('integrate_modify_modifications', 'addSnowAndGarlandAdminAction', false);
     add_integration_function('integrate_load_theme', 'loadSnowAndGarlandAssets', false);
+    add_integration_function('integrate_menu_buttons', 'addSnowAndGarlandCopyright', false);
 }
 
+/**
+ * Add mod copyright to the forum credits page
+ */
+function addSnowAndGarlandCopyright()
+{
+    global $context;
+
+    if ($context['current_action'] == 'credits') {
+        $context['copyrights']['mods'][] = '<a href="https://mysmf.net/mods/snow-and-garland" target="_blank">Snow and Garland</a> &copy; 2011-2018, digger';
+    }
+}
 
 /**
  * Add mod admin area
@@ -31,7 +43,7 @@ function loadSnowAndGarlandHooks()
 function addSnowAndGarlandAdminArea(&$admin_areas)
 {
     global $txt;
-    loadLanguage('SnowAndGarland/');
+    loadLanguage('SnowAndGarland/SnowAndGarland');
 
     $admin_areas['config']['areas']['modsettings']['subsections']['snow_and_garland'] = array($txt['SnowAndGarland']);
 }
@@ -55,7 +67,7 @@ function addSnowAndGarlandAdminAction(&$subActions)
 function addSnowAndGarlandAdminSettings($return_config = false)
 {
     global $txt, $scripturl, $context;
-    loadLanguage('SnowAndGarland/');
+    loadLanguage('SnowAndGarland/SnowAndGarland');
 
     $context['page_title'] = $context['settings_title'] = $txt['SnowAndGarland'];
     $context['post_url'] = $scripturl . '?action=admin;area=modsettings;save;sa=snow_and_garland';
@@ -117,7 +129,7 @@ function loadSnowAndGarlandAssets()
     if ($modSettings['SnowAndGarland_snow_enabled']) {
         $context['insert_after_template'] .= '         
                 <script type="text/javascript" src="' . $settings['default_theme_url'] . '/lights/snowstorm-min.js"></script>
-                <script type="text/javascript"><!-- // --><![CDATA[     
+                <script type="text/javascript">     
                     snowStorm.autoStart = true;
                     snowStorm.animationInterval = 33;
                     snowStorm.flakeBottom = null;
@@ -138,7 +150,7 @@ function loadSnowAndGarlandAssets()
                     snowStorm.zIndex = ' . (!empty($modSettings['SnowAndGarland_snow_zIndex']) ? $modSettings['SnowAndGarland_snow_zIndex'] : 0) . ';
                     snowStorm.targetElement = ' . (!empty($modSettings['SnowAndGarland_snow_targetElement']) ? '"' . $modSettings['SnowAndGarland_snow_targetElement'] . '"' : 'null') . ';
                     snowStorm.excludeMobile = ' . (!empty($modSettings['SnowAndGarland_snow_mobile_enabled']) ? 'false' : 'true') . ';
-                // ]]></script>';
+                </script>';
     }
 
     if ($modSettings['SnowAndGarland_garland_enabled']) {
@@ -149,14 +161,34 @@ function loadSnowAndGarlandAssets()
 
         $context['html_headers'] .= '
     <link rel="stylesheet" media="screen" href ="' . $settings['default_theme_url'] . '/lights/christmaslights.css" />
-    <script type="text/javascript" src ="' . $settings['default_theme_url'] . '/lights/soundmanager2-nodebug-jsmin.js"></script>
+    
     <script type="text/javascript" src ="' . $settings['default_theme_url'] . '/lights/animation-min.js"></script>
-    <script type="text/javascript" src ="' . $settings['default_theme_url'] . '/lights/christmaslights-min.js"></script>                                 
-    <script type="text/javascript"><!-- // --><![CDATA[ 
-        var urlBase="' . $settings['default_theme_url'] . '/lights/";
-        var garlandSize="' . $modSettings['SnowAndGarland_garland_garlandSize'] . '";                        
-        ' . (!empty($modSettings['SnowAndGarland_garland_sound_enabled']) ? 'soundManager.url="' . $settings['default_theme_url'] . '/lights/";' : '') . '                    
-    // ]]></script>';
+    <script type="text/javascript" src ="' . $settings['default_theme_url'] . '/lights/soundmanager2-nodebug-jsmin.js"></script>
+    <script type="text/javascript" src ="' . $settings['default_theme_url'] . '/lights/christmaslights.min.js"></script>
+    <script type="text/javascript"> 
+        var garlandSize="' . $modSettings['SnowAndGarland_garland_garlandSize'] . '"
+        var urlBase="' . $settings['default_theme_url'] . '/lights/"
+        soundManager.setup({
+            flashVersion: 9,
+            preferFlash: false,
+            url: urlBase,
+            onready: function() {
+                smashInit();
+            },
+            ontimeout: function() {
+                smashInit();
+            }
+        });
+    </script>                                 
+';
+
+        if (empty($modSettings['SnowAndGarland_garland_sound_enabled'])) {
+            $context['html_headers'] .= '
+    <script type="text/javascript">
+        soundManager.mute();
+    </script>
+';
+        }
 
         if (!empty($modSettings['SnowAndGarland_top_offset'])) {
             $context['html_headers'] .= '
@@ -175,16 +207,14 @@ function loadSnowAndGarlandAssets()
         }
     </style>';
         }
+    }
 
-        loadTemplate('SnowAndGarland');
+    loadTemplate('SnowAndGarland');
 
-        if (isset($context['template_layers'])) {
-            $position = array_search('html', $context['template_layers']);
-            if ($position !== false) {
-                array_splice($context['template_layers'], $position + 1, 0, 'garland');
-            }
+    if (isset($context['template_layers'])) {
+        $position = array_search('html', $context['template_layers']);
+        if ($position !== false) {
+            array_splice($context['template_layers'], $position + 1, 0, 'garland');
         }
     }
 }
-
-?>
