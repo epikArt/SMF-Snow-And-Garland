@@ -12,10 +12,17 @@
 * **Hooks only:** Yes
 * **Languages:** English, Russian, Spanish
 
+## Installation
+Download and install latest release tar.gz file from [releases page](https://github.com/realdigger/SMF-Snow-And-Garland/releases).
+
 ## Description
 Snow and Garland for your forum.
 
 Mod uses Snowstorm script https://github.com/scottschiller/snowstorm/ licensed under the BSD license.
+
+## Установка
+   Загрузите и установите файл tar.gz актуальной версии со [страницы загрузок](https://github.com/realdigger/SMF-Snow-And-Garland/releases).
+
 
 ## Описание
 Новогодние радости - гирлянды и снег.
