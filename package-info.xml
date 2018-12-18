@@ -5,7 +5,7 @@
     <id>digger:snow_and_garland</id>
     <name>Snow and Garland</name>
     <type>modification</type>
-    <version>1.4.0</version>
+    <version>1.4.1</version>
 
     <install for="2.0 - 2.1.99">
         <readme parsebbc="true">README.bbc</readme>
