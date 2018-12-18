@@ -81,7 +81,7 @@ function addSnowAndGarlandAdminSettings($return_config = false)
         array(
             'select',
             'SnowAndGarland_garland_garlandSize',
-            array('pico' => 'pico', 'tiny' => 'tiny', 'small' => 'small', 'medium' => 'medium', 'large' => 'large')
+            array('micro' => 'micro', 'pico' => 'pico', 'tiny' => 'tiny', 'small' => 'small', 'medium' => 'medium', 'large' => 'large')
         ),
         '',
         array('check', 'SnowAndGarland_snow_enabled'),

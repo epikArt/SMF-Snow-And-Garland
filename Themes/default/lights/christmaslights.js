@@ -32,6 +32,7 @@ function XLSF(oTarget,urlBase) {
   this.oExplosionFrag.className = 'xlsf-fragment';
   this.lights = [];
   this.lightClasses = {
+    micro: 16,
     pico: 32,
     tiny: 50,
     small: 64,
